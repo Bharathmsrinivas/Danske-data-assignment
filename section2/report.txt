@@ -1,0 +1,7 @@
+
+Total records processed: 8
+Date error records: 2
+Date logic error records: 1
+Payment error records: 1
+Total exposure (all customers): 3710.5
+Average exposure (per customer): 465.7857142857143
