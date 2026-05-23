@@ -41,3 +41,60 @@ The below Requirements are not implemented considering I have limited exposure a
 - Increase unit test coverage to include more edge cases and integration-level testing.
 - Add validation for pipeline-level execution and failure scenarios.
 
+  Details:
+
+This project works with asset finance data, where loan agreement records are processed to derive customer exposure and risk-related insights, supporting analysis of customer behaviour, payments, and portfolio risk.
+
+## Dataset Overview
+
+The dataset represents loan agreements in CSV format, where each record corresponds to a financial contract. It can support multiple analytical use cases such as:
+
+- Exposure analysis  
+- Customer behaviour analysis  
+- Payment pattern analysis  
+- Delinquency tracking  
+- Portfolio monitoring  
+
+As the data originates from operational systems, it contains quality issues that can impact downstream reporting and analytics. The pipeline addresses this by applying structured validation and processing to make the data reliable for business use.
+
+## Pipeline Overview
+
+The project implements a structured data processing pipeline following an ETL pattern:
+
+Data Ingestion → Data Cleaning → Transformation → Loading → Reporting
+
+Key components:
+
+- Data quality checks to standardize and validate raw data  
+- Transformation layer to prepare analytics-ready, aggregated datasets  
+- Centralized storage in a SQLite database  
+- Output generation for different stakeholders  
+
+## Outputs
+
+The processed data is delivered in multiple formats to support different use cases:
+
+- Excel → for business users and stakeholders  
+- Text output → for validation and monitoring  
+- Database layer → for analytics, data modeling, and visualization  
+
+
+## SQL & Analytics Layer
+
+SQL queries demonstrate how structured data can be used to answer key business scenarios, including:
+
+- Identifying high-exposure customers  
+- Analyzing payment behaviour patterns  
+- Detecting inactivity and potential risk signals  
+
+This layer reflects real analytical usage and can be extended with proper data modeling (for example, star schema design) to support reporting, dashboards, and self-service analytics.
+
+
+## Practical Usage
+
+This pipeline can run periodically (daily/weekly/monthly) to process new incoming data. Each run updates the cleaned and transformed dataset in the database and refreshes outputs and reports.
+
+This ensures analytics, metrics, and visualizations always reflect the latest data, supporting ongoing monitoring of exposure, customer behaviour, and potential risk patterns.
+
+This structure reflects a typical data pipeline used to convert raw operational data into analytics-ready datasets for reporting and decision-making.
+
