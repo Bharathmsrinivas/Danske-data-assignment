@@ -1,8 +1,6 @@
 # Danske-data-assignment
 
-
 This project cleans loan agreement data, calculates risk scores, and builds a simple data pipeline.
-
 
 Install required libraries: pip install -r requirements.txt
 
@@ -89,6 +87,37 @@ SQL queries demonstrate how structured data can be used to answer key business s
 
 This layer reflects real analytical usage and can be extended with proper data modeling (for example, star schema design) to support reporting, dashboards, and self-service analytics.
 
+## Performance Comparison
+
+Benchmark results were evaluated on both small and large datasets to understand scalability.
+
+### Small dataset (~5,000 rows)
+
+-------------------------------------
+Method                 Time (sec)
+-------------------------------------
+Original (iterrows)    ~0.23
+Pandas (vectorized)    ~0.005
+Polars                 ~0.09
+-------------------------------------
+
+
+### Large dataset (~5 million rows)
+
+-------------------------------------
+Method                 Time (sec)
+-------------------------------------
+Original (iterrows)    ~178
+Pandas (vectorized)    ~0.58
+Polars                 ~0.91
+-------------------------------------
+
+
+### Summary
+
+- Vectorized processing significantly outperforms row-wise execution
+- Pandas performs very efficiently at this scale  
+- Polars provides comparable performance and is better suited for larger datasets and scalable pipelines
 
 ## Practical Usage
 
