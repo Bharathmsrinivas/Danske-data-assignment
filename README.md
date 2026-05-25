@@ -26,6 +26,7 @@ While the current implementation provides a complete working solution, the follo
 **3. Scalability & Performance**
 - For larger datasets, the solution can be extended to use distributed processing frameworks such as PySpark for better scalability.
 - Performance can be further enhanced with optimized data storage and processing techniques like delta lake and parquet format.
+- For large and frequently updating datasets, **incremental data loading** can be used to process only **new or changed records** instead of reprocessing the entire dataset each time. This improves **performance** and supports **near real-time processing**.
 
 The following areas were not fully implemented due to time constraints and are identified as future improvements:
 
