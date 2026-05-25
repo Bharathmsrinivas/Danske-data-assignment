@@ -1,14 +1,14 @@
 # Danske-data-assignment
 
-This project processes asset finance data to build a structured ETL pipeline, generate risk-related insights, and produce reusable reporting outputs for analysis and business use.
+
+This project cleans loan agreement data, calculates risk scores, and builds a simple data pipeline.
+
 
 Install required libraries: pip install -r requirements.txt
 
-Run Pipeline : 
-python -m section2.pipeline
+Execute : python -m section2.pipeline
 
-Run Tests: 
-Pytest
+Run Tests: Pytest
 
 AI Usage : Some of the code snippets and to get myself familiarize with Polars, Pytest etc AI has been leveraged
 
@@ -26,9 +26,8 @@ While the current implementation provides a complete working solution, the follo
 **3. Scalability & Performance**
 - For larger datasets, the solution can be extended to use distributed processing frameworks such as PySpark for better scalability.
 - Performance can be further enhanced with optimized data storage and processing techniques like delta lake and parquet format.
-- For large and frequently updating datasets, **incremental data loading** can be used to process only **new or changed records** instead of reprocessing the entire dataset each time. This improves **performance** and supports **near real-time processing**.
 
-The following areas were not fully implemented due to time constraints and are identified as future improvements:
+The below Requirements are not implemented considering I have limited exposure and I would like to familiarise it before implementing.
 
 **1. Class**
 - A class-based design (e.g., encapsulating pipeline steps into a reusable class) could improve modularity and reusability.
@@ -42,9 +41,9 @@ The following areas were not fully implemented due to time constraints and are i
 - Increase unit test coverage to include more edge cases and integration-level testing.
 - Add validation for pipeline-level execution and failure scenarios.
 
-## Project Details:
+  Details:
 
-This project uses asset finance data, where loan agreement records are processed to derive customer exposure and risk-related insights, supporting analysis of customer behaviour, payments, and portfolio risk.
+This project works with asset finance data, where loan agreement records are processed to derive customer exposure and risk-related insights, supporting analysis of customer behaviour, payments, and portfolio risk.
 
 ## Dataset Overview
 
@@ -90,45 +89,6 @@ SQL queries demonstrate how structured data can be used to answer key business s
 
 This layer reflects real analytical usage and can be extended with proper data modeling (for example, star schema design) to support reporting, dashboards, and self-service analytics.
 
-## Performance Comparison
-
-Benchmark results were evaluated on both small and large datasets to understand scalability.
-
-### Small dataset (~5,000 rows)
-
--------------------------------------
-Method                 Time (sec)
--------------------------------------
-Original (iterrows)    ~0.23
-Pandas (vectorized)    ~0.005
-Polars                 ~0.09
--------------------------------------
-
-
-### Large dataset (~5 million rows)
-
--------------------------------------
-Method                 Time (sec)
--------------------------------------
-Original (iterrows)    ~178
-Pandas (vectorized)    ~0.58
-Polars                 ~0.91
--------------------------------------
-
-
-### Summary
-
-- Vectorized processing significantly outperforms row-wise execution
-- Pandas performs very efficiently at this scale  
-- Polars provides comparable performance and is better suited for larger datasets and scalable pipelines
-
-## Reporting Framework
-
-A reusable reporting component is implemented to generate outputs from processed data in multiple formats. It accepts a dataset along with a template and produces:
-
-- HTML report → structured presentation using a template with summary and tabular data  
-- Excel output → full dataset for business analysis  
-- Text output → summary and data preview for validation and monitoring  
 
 ## Practical Usage
 

@@ -10,6 +10,7 @@ def calculate_cost(df_data):
         (df_data["currency"].str.upper() == "EUR") & (df_data["status"].str.upper() == "ACTIVE"))
     df_data['Cost'] = 0
     df_data.loc[df_data['active_eur'], 'Cost' ] = df_data['monthly_payment'] * 12
+    df_data['Cost'] = df_data['Cost'].astype(float)
     df_data.loc[df_data['active_eur']  & (df_data['asset_type'] == "CAR"), 'Cost' ] *= 0.95
     df_data.loc[df_data['active_eur']  & (df_data['asset_type'] == "FLEET"), 'Cost' ] *= 0.90
     return df_data

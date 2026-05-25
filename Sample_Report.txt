@@ -1,0 +1,16 @@
+===== Summary =====
+       payment
+count      3.0
+mean     200.0
+std      100.0
+min      100.0
+25%      150.0
+50%      200.0
+75%      250.0
+max      300.0
+
+===== Data Preview =====
+  customer  payment
+0        A      100
+1        B      200
+2        C      300
