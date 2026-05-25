@@ -16,8 +16,8 @@ def clean_agreements(df):
     df['customer_id'] = df['customer_id'].fillna('UNKNOWN')
     return df
 
-# df_clean = clean_agreements(df)
-# print(df_clean)
+df_clean = clean_agreements(df)
+print(df_clean)
 
 # print(df_clean.dtypes)
 
@@ -27,7 +27,8 @@ def summarise_errors(df: pd.DataFrame) -> dict:
         'has_date_logic_error': df['has_date_logic_error'].sum(),
         'has_payment_error': df['has_payment_error'].sum()
     }
-    return pd.DataFrame([error_summary])
+    return error_summary
+    
 
-# summary = summarise_errors(df_clean)
-# print(summary)
+summary = summarise_errors(df_clean)
+print(summary)
